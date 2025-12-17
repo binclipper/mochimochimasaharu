@@ -3,185 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>もちもちまさはる</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+    <title>もちもちまさはる | Official Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f8f7f5;
-            --accent-color: #788694;
+            --main-bg: #f9f8f6;
+            --accent-color: #6a7d8e; /* 落ち着いたブルーグレー */
+            --text-color: #333;
             --card-bg: #ffffff;
-            --text-color: #333333;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
+            background-color: var(--main-bg);
             color: var(--text-color);
             font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.9;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* ヘッダーエリア */
         header {
-            padding: 80px 20px 40px;
+            padding: 60px 20px 20px;
             text-align: center;
         }
 
         h1 {
             font-family: 'Noto Serif JP', serif;
-            font-size: 2.2rem;
-            letter-spacing: 0.1em;
+            font-size: 2.5rem;
+            letter-spacing: 0.15em;
             margin: 0;
-            color: var(--text-color);
+            color: var(--accent-color);
         }
 
-        .container {
+        .subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* メインコンテンツ */
+        main {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px 100px;
+            padding: 40px 20px;
         }
 
-        /* 画像エリア */
-        .hero-section {
+        /* 画像セクション */
+        .hero-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             margin-bottom: 60px;
-            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            background-color: #ddd;
         }
 
-        .hero-section img {
+        .hero-image img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.6s ease;
         }
 
-        /* コンテンツエリア（グリッド配置） */
-        .content-grid {
+        .hero-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* プロフィールセクション */
+        .profile-section {
             display: grid;
-            gap: 24px;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        /* 各カードのスタイル */
-        .card {
-            background: var(--card-bg);
-            padding: 32px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* 文章をそのまま表示 */
-        .card-text {
-            font-size: 1rem;
-            font-weight: 300;
-        }
-
-        /* 1番目の自己紹介カードだけ横幅を広くとる */
-        .card.featured {
-            grid-column: 1 / -1;
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        .card.featured .card-text {
+        .intro-text {
             font-family: 'Noto Serif JP', serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 40px;
         }
 
-        /* 装飾用の小さな四角 */
-        .decorator {
-            width: 12px;
-            height: 12px;
-            background-color: var(--accent-color);
-            margin-bottom: 16px;
-            border-radius: 2px;
+        /* 各エピソードをカード風に */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
-        
-        .featured .decorator {
-            margin: 0 auto 20px;
+
+        .feature-item {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .feature-item h2 {
+            font-size: 1.1rem;
+            margin-top: 0;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item h2::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .feature-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 100px 20px 60px;
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+
+        /* フェードインアニメーション */
+        .fade-in {
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem; }
-            header { padding: 50px 20px 30px; }
-            .card { padding: 24px; }
+            .intro-text { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>もちもちまさはる</h1>
+<header class="fade-in">
+    <h1>もちもち 雅春</h1>
+    <p class="subtitle">British Shorthair / Special Cat</p>
 </header>
 
-<div class="container">
-    <div class="hero-section">
-        <img src="index.jpg" alt="もちもちまさはる">
+<main class="fade-in" style="animation-delay: 0.2s;">
+    <div class="hero-image">
+        <img src="index.jpg" alt="雅春のポートレート">
     </div>
 
-    <div class="content-grid">
-        <div class="card featured">
-            <div class="decorator"></div>
-            <div class="card-text">
-                まさし川みつを教授はまさし。<br>
-                まさしは雅春。<br>
-                自我を持った特別なブリティッシュショートヘアの猫。<br>
-                グレモフに包まれた雅春は丸く、まるで動くぬいぐるみのよう。
-            </div>
+    <section class="intro-text">
+        <p>
+            まさし川みつを教授はまさし。<br>
+            まさしは雅春。<br>
+            自我を持った特別なブリティッシュショートヘア。
+        </p>
+    </section>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h2>グレモフの魅力</h2>
+            <p>グレモフに包まれた雅春は丸く、まるで動くぬいぐるみのよう。</p>
         </div>
 
-        <div class="card">
-            <div class="decorator"></div>
-            <div class="card-text">
-                雅春の喜びはごはん。<br>
-                まるでかりをたのしむかのように乾燥したササミを堪能する。<br>
-                あと虹色の紐が好き。
-            </div>
+        <div class="feature-item">
+            <h2>食のこだわり</h2>
+            <p>喜びはごはん。まるで狩りを楽しむかのように、乾燥したササミを堪能する。</p>
         </div>
 
-        <div class="card">
-            <div class="decorator"></div>
-            <div class="card-text">
-                大体寝てる。
-            </div>
+        <div class="feature-item">
+            <h2>愛すべき習慣</h2>
+            <p>水を飲んだあとは、たいていアゴに水滴がついている。お気に入りは虹色の紐。</p>
         </div>
 
-        <div class="card">
-            <div class="decorator"></div>
-            <div class="card-text">
-                水を飲んだあとはたいていアゴに水滴ついてる。
-            </div>
+        <div class="feature-item">
+            <h2>特技：ふみふみアラーム</h2>
+            <p>飼い主の顔面を肉球でなで起こす、至福のモーニングルーティン。</p>
         </div>
 
-        <div class="card">
-            <div class="decorator"></div>
-            <div class="card-text">
-                雅春の特技は「ふみふみアラーム」。<br>
-                飼い主の顔面を肉球でなで起こす。
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="decorator"></div>
-            <div class="card-text">
-                めっちゃ毛抜ける
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="decorator"></div>
-            <div class="card-text">
-                足みじ。<br>
-                実はもふもふに隠れているだけで意外と足なが。
-            </div>
+        <div class="feature-item">
+            <h2>身体の秘密</h2>
+            <p>実は足なが。もふもふに隠れているだけで、意外とスタイルが良い。ただし、めっちゃ毛は抜ける。</p>
         </div>
     </div>
-</div>
+</main>
+
+<footer>
+    &copy; 2025 もちもちまさはる Official Profile
+</footer>
 
 </body>
 </html>
