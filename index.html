@@ -3,28 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>もちもちまさはる</title>
+    <title>もちもちまさはる | Official Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-bg: #f9f8f6;
+            --accent-color: #6a7d8e; /* 落ち着いたブルーグレー */
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--main-bg);
+            color: var(--text-color);
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ヘッダーエリア */
+        header {
+            padding: 60px 20px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2.5rem;
+            letter-spacing: 0.15em;
+            margin: 0;
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* メインコンテンツ */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 画像セクション */
+        .hero-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+            overflow: hidden;
+            background-color: #ddd;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* プロフィールセクション */
+        .profile-section {
+            display: grid;
+            gap: 40px;
+        }
+
+        .intro-text {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 1.25rem;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 40px;
+        }
+
+        /* 各エピソードをカード風に */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-item {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .feature-item h2 {
+            font-size: 1.1rem;
+            margin-top: 0;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-item h2::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .feature-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 100px 20px 60px;
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+
+        /* フェードインアニメーション */
+        .fade-in {
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .intro-text { font-size: 1.1rem; }
+        }
+    </style>
 </head>
 <body>
-    <div style="text-align: center;">
-        <img src="index.jpg" style="max-width: 100%; height: auto;">
+
+<header class="fade-in">
+    <h1>もちもち 雅春</h1>
+    <p class="subtitle">British Shorthair / Special Cat</p>
+</header>
+
+<main class="fade-in" style="animation-delay: 0.2s;">
+    <div class="hero-image">
+        <img src="index.jpg" alt="雅春のポートレート">
     </div>
-    <div style="text-align: center;">
-        <!-- テキストを「。」で改行 -->
-        ●まさし川みつを教授はまさし。<br>
-        まさしは雅春。<br>
-        自我を持った特別なブリティッシュショートヘアの猫。<br>
-        グレモフに包まれた雅春は丸く、まるで動くぬいぐるみのよう。<br>
-        ●雅春の喜びはごはん。<br>
-        まるでかりをたのしむかのように乾燥したササミを堪能する。<br>
-        あと虹色の紐が好き。<br>
-        ●大体寝てる。<br>
-        ●水を飲んだあとはたいていアゴに水滴ついてる。<br>
-        ●雅春の特技は「ふみふみアラーム」。<br>
-        飼い主の顔面を肉球でなで起こす。<br>
-        ●めっちゃ毛抜ける<br>
-        ●足みじ。<br>
-        実はもふもふに隠れているだけで意外と足なが。
+
+    <section class="intro-text">
+        <p>
+            まさし川みつを教授はまさし。<br>
+            まさしは雅春。<br>
+            自我を持った特別なブリティッシュショートヘア。
+        </p>
+    </section>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h2>グレモフの魅力</h2>
+            <p>グレモフに包まれた雅春は丸く、まるで動くぬいぐるみのよう。</p>
+        </div>
+
+        <div class="feature-item">
+            <h2>食のこだわり</h2>
+            <p>喜びはごはん。まるで狩りを楽しむかのように、乾燥したササミを堪能する。</p>
+        </div>
+
+        <div class="feature-item">
+            <h2>愛すべき習慣</h2>
+            <p>水を飲んだあとは、たいていアゴに水滴がついている。お気に入りは虹色の紐。</p>
+        </div>
+
+        <div class="feature-item">
+            <h2>特技：ふみふみアラーム</h2>
+            <p>飼い主の顔面を肉球でなで起こす、至福のモーニングルーティン。</p>
+        </div>
+
+        <div class="feature-item">
+            <h2>身体の秘密</h2>
+            <p>実は足なが。もふもふに隠れているだけで、意外とスタイルが良い。ただし、めっちゃ毛は抜ける。</p>
+        </div>
     </div>
+</main>
+
+<footer>
+    &copy; 2025 もちもちまさはる Official Profile
+</footer>
+
 </body>
 </html>
